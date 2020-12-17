@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "167895800764",
+    "project_id": "beverage-app-dfe2b",
+    "storage_bucket": "beverage-app-dfe2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167895800764:android:81f5d6e1d00682ebc569b9",
+        "android_client_info": {
+          "package_name": "com.example.beverageapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167895800764-iufbm05vk25g3sjsj66opi4l50sp92ia.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ914G98YQ9YoSRHB3AAflUiTvG-75zEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167895800764-iufbm05vk25g3sjsj66opi4l50sp92ia.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
