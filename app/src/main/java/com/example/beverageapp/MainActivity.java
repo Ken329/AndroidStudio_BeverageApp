@@ -77,6 +77,11 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
         intent.putExtra("id", id);
         startActivity(intent);
     }
+    public void goLogin(String id){
+        Intent intent = new Intent(getApplicationContext(), MainLogin.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
+    }
 
     @Override
     public void applyTexts(String id) {
@@ -87,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
-
+                    goLogin(id);
                 }else{
                     goSignUp(id);
                 }
