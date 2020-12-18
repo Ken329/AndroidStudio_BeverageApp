@@ -45,7 +45,6 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/tvUser"
                     android:layout_width="wrap_content"
@@ -120,7 +119,8 @@
                 android:layout_gravity="center"
                 android:gravity="center">
                 <ImageView
-                    android:layout_width="100dp"
+                    android:id="@+id/ivOrange"
+                    android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:src="@mipmap/orange_foreground"></ImageView>
                 <TextView
@@ -149,13 +149,14 @@
                 android:layout_gravity="center"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/ivEnergy"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@mipmap/energy_foreground"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orange Juice"
+                    android:text="Energy Drink"
                     android:textColor="@color/black"
                     android:textSize="20dp"></TextView>
             </LinearLayout>
@@ -178,13 +179,14 @@
                 android:layout_gravity="center"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/ivSoda"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@mipmap/soda_foreground"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orange Juice"
+                    android:text="Soda Water"
                     android:textColor="@color/black"
                     android:textSize="20dp"></TextView>
             </LinearLayout>
@@ -207,13 +209,14 @@
                 android:layout_gravity="center"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/ivIceCream"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@mipmap/new_ice_cream_foreground"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orange Juice"
+                    android:text="Ice Cream"
                     android:textColor="@color/black"
                     android:textSize="20dp"></TextView>
             </LinearLayout>
@@ -236,13 +239,14 @@
                 android:layout_gravity="center"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/ivCockTail"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@mipmap/new_cock_tail_foreground"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orange Juice"
+                    android:text="Cocktail"
                     android:textColor="@color/black"
                     android:textSize="20dp"></TextView>
             </LinearLayout>
@@ -265,13 +269,14 @@
                 android:layout_gravity="center"
                 android:gravity="center">
                 <ImageView
+                    android:id="@+id/ivCoffee"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:src="@mipmap/coffee_foreground"></ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Orange Juice"
+                    android:text="Coffee"
                     android:textColor="@color/black"
                     android:textSize="20dp"></TextView>
             </LinearLayout>

@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
             android:background="@drawable/title_bar"
-            android:elevation="200dp"
+            android:elevation="8dp"
             app:srcCompat="@drawable/abc_vector_test" />
 
         <TextView

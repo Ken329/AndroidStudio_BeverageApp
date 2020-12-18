@@ -19,11 +19,11 @@
         android:orientation="horizontal">
         <ImageButton
             android:id="@+id/ibRegisterBack"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:elevation="200dp"
+            android:elevation="8dp"
             android:background="@drawable/title_bar"
             app:srcCompat="@drawable/abc_vector_test" />
         <TextView
