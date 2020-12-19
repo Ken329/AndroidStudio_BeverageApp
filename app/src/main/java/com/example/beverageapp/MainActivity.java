@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
 
     DatabaseReference ref;
     String myName, myId, myUser;
+    int amount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
             public void onClick(View v) {
                 myUser = user.getText().toString();
                 if(myUser.equals("User")){
-                    Toast.makeText(MainActivity.this, "Login first", Toast.LENGTH_SHORT).show();
+                    showError();
                 }else{
                     Intent intent = new Intent(v.getContext(), MainUserDetail.class);
                     intent.putExtra("id", myId);
@@ -92,7 +93,14 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    Intent intent = new Intent(v.getContext(), MainCart.class);
+                    intent.putExtra("id", myId);
+                    startActivity(intent);
+                }
             }
         });
         wallet.setOnClickListener(new View.OnClickListener() {
@@ -104,37 +112,73 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
         orange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful added Orange Juice to cart", Toast.LENGTH_LONG).show();
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    getItem(myId, "orange");
+                    showOrder("Orange Juice");
+                }
             }
         });
         energy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful added Energy Drink to cart", Toast.LENGTH_LONG).show();
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    getItem(myId, "energy");
+                    showOrder("Energy Drink");
+                }
             }
         });
         soda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful added Soda Water to cart", Toast.LENGTH_LONG).show();
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    getItem(myId, "soda");
+                    showOrder("Soda Water");
+                }
             }
         });
         iceCream.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful added Ice Cream to cart", Toast.LENGTH_LONG).show();
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    getItem(myId, "ice_cream");
+                    showOrder("Ice Cream");
+                }
             }
         });
         cockTail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful added Cocktail to cart", Toast.LENGTH_LONG).show();
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    getItem(myId, "cock_tail");
+                    showOrder("Cocktail");
+                }
             }
         });
         coffee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Successful added Coffee to cart", Toast.LENGTH_LONG).show();
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    getItem(myId, "coffee");
+                    showOrder("Coffee");
+                }
             }
         });
     }
@@ -151,6 +195,31 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
         Intent intent = new Intent(getApplicationContext(), MainLogin.class);
         intent.putExtra("id", id);
         startActivity(intent);
+    }
+    public void showError(){
+        Toast.makeText(MainActivity.this, "Login first", Toast.LENGTH_SHORT).show();
+    }
+    public void showOrder(String drink){
+        Toast.makeText(MainActivity.this, drink + " added to cart", Toast.LENGTH_LONG).show();
+    }
+    public void getItem(String id, String item){
+        Query query1 = FirebaseDatabase.getInstance().getReference("cart")
+                .orderByChild("id")
+                .equalTo(id);
+        query1.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    amount = Integer.parseInt(snapshot.child(id).child(item).child("amount").getValue().toString()) + 1;
+                    ref = FirebaseDatabase.getInstance().getReference("cart").child(id);
+                    ref.child(item).child("amount").setValue(String.valueOf(amount));
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     @Override
