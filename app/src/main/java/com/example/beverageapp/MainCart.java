@@ -19,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainCart extends AppCompatActivity {
     TextView oItem, eItem, sItem, iItem, cockItem, coffItem, oPrice, ePrice, sPrice, iPrice, cockPrice, coffPrice,  total, minus1, minus2, minus3, minus4, minus5, minus6, plus1, plus2 ,plus3 ,plus4 ,plus5 ,plus6;
+    TextView checkout;
     ImageButton back;
     DatabaseReference ref;
     String myId;
@@ -42,6 +43,7 @@ public class MainCart extends AppCompatActivity {
         cockPrice = findViewById(R.id.tvCartPrice5);
         coffPrice = findViewById(R.id.tvCartPrice6);
         total = findViewById(R.id.tvCartPriceTotal);
+        checkout = findViewById(R.id.tvCartCheckout);
 
         minus1 = findViewById(R.id.tcCartItem1Minus);
         minus2 = findViewById(R.id.tcCartItem2Minus);
@@ -167,6 +169,46 @@ public class MainCart extends AppCompatActivity {
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
                 intent.putExtra("id", myId);
                 startActivity(intent);
+            }
+        });
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Query query = FirebaseDatabase.getInstance().getReference("wallet")
+                        .orderByChild("id")
+                        .equalTo(myId);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.exists()){
+                            double balance = Double.parseDouble(snapshot.child(myId).child("balance").getValue().toString());
+                            double amount = Double.parseDouble(total.getText().toString());
+                            double total = balance - amount;
+                            if(total < 0){
+                                Intent intent = new Intent(v.getContext(), MainWallet.class);
+                                intent.putExtra("id", myId);
+                                startActivity(intent);
+                                Toast.makeText(MainCart.this, "Insufficient amount, top up first", Toast.LENGTH_LONG).show();
+                            }else{
+                                String newBalance = String.format("%.2f", total);
+                                ref = FirebaseDatabase.getInstance().getReference("wallet").child(myId);
+                                ref.child("balance").setValue(newBalance);
+                                ref = FirebaseDatabase.getInstance().getReference("cart").child(myId);
+                                ref.child("orange").child("amount").setValue("0");
+                                ref.child("energy").child("amount").setValue("0");
+                                ref.child("soda").child("amount").setValue("0");
+                                ref.child("ice_cream").child("amount").setValue("0");
+                                ref.child("cock_tail").child("amount").setValue("0");
+                                ref.child("coffee").child("amount").setValue("0");
+                                Toast.makeText(MainCart.this, "Successful Purchase, New balance " + newBalance, Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
     }

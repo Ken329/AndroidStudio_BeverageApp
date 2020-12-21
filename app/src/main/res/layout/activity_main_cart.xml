@@ -8,32 +8,35 @@
     tools:context=".MainCart">
 
     <LinearLayout
+        android:id="@+id/linearLayout7"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@drawable/title_bar"
         android:layout_margin="10dp"
+        android:background="@drawable/title_bar"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <ImageButton
             android:id="@+id/ibCartBack"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:background="@drawable/title_bar"
-            android:elevation="8dp"
             android:layout_gravity="center"
             android:layout_marginLeft="30dp"
+            android:background="@drawable/title_bar"
+            android:elevation="8dp"
             app:srcCompat="@drawable/abc_vector_test" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cart"
-            android:textSize="30dp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginLeft="60dp"></TextView>
+            android:layout_marginLeft="60dp"
+            android:text="Cart"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"></TextView>
     </LinearLayout>
 
     <TextView
@@ -323,24 +326,24 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.884" />
+        app:layout_constraintVertical_bias="0.821" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="228dp"
-        android:layout_marginLeft="228dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginLeft="232dp"
         android:text="Total: "
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.884" />
+        app:layout_constraintVertical_bias="0.822" />
 
     <TextView
         android:id="@+id/tcCartItem1Minus"
@@ -545,4 +548,27 @@
         app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toEndOf="@+id/tvCartItem6"
         app:layout_constraintTop_toTopOf="@id/tcCartItem5Plus"></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/title_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.935">
+
+        <TextView
+            android:id="@+id/tvCartCheckout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Press to Checkout"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold"></TextView>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
