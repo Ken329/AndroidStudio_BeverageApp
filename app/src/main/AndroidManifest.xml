@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeverageApp">
-        <activity android:name=".MainCart"></activity>
+        <activity android:name=".MainWallet"></activity>
+        <activity android:name=".MainCart" />
         <activity android:name=".MainUserDetail" />
         <activity android:name=".MainLogin" />
         <activity android:name=".MainSignUp" />

@@ -106,7 +106,14 @@ public class MainActivity extends AppCompatActivity implements UserDialog.Exampl
         wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                myUser = user.getText().toString();
+                if(myUser.equals("User")){
+                    showError();
+                }else{
+                    Intent intent = new Intent(v.getContext(), MainWallet.class);
+                    intent.putExtra("id", myId);
+                    startActivity(intent);
+                }
             }
         });
         orange.setOnClickListener(new View.OnClickListener() {

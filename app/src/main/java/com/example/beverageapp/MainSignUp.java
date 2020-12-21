@@ -58,6 +58,10 @@ public class MainSignUp extends AppCompatActivity {
                     ref.child("ice_cream").child("amount").setValue("0");
                     ref.child("cock_tail").child("amount").setValue("0");
                     ref.child("coffee").child("amount").setValue("0");
+                    ref = FirebaseDatabase.getInstance().getReference("wallet").child(myId);
+                    ref.child("id").setValue(myId);
+                    ref.child("name").setValue(myName);
+                    ref.child("balance").setValue("0.00");
                     Toast.makeText(MainSignUp.this, "Successful created", Toast.LENGTH_LONG).show();
                     goMain(myId);
                 }
