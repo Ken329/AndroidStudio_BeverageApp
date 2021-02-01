@@ -142,13 +142,13 @@ public class MainCart extends AppCompatActivity {
         minus5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manageItem(myId, "cock-tail", "-");
+                manageItem(myId, "cock_tail", "-");
             }
         });
         plus5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                manageItem(myId, "cock-tail", "+");
+                manageItem(myId, "cock_tail", "+");
             }
         });
         minus6.setOnClickListener(new View.OnClickListener() {
@@ -219,8 +219,8 @@ public class MainCart extends AppCompatActivity {
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int amount = 0;
                 if(snapshot.exists()){
-                    int amount = 0;
                     if(action.equals("+")){
                         amount = Integer.parseInt(snapshot.child(id).child(item).child("amount").getValue().toString()) + 1;
                     }else{

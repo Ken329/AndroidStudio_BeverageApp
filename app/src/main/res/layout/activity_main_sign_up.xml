@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
         android:background="@drawable/title_bar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:id="@+id/tvRegisterId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:text="ID"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +52,7 @@
         android:id="@+id/etRegisterPassword"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPersonName"
@@ -68,7 +68,7 @@
         android:id="@+id/etRegisterName"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/input_pattern"
         android:ems="10"
         android:gravity="center"
@@ -84,7 +84,7 @@
         android:id="@+id/etRegisterPhone"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/input_pattern"
         android:ems="10"
         android:gravity="center"
@@ -100,7 +100,7 @@
         android:id="@+id/etRegisterAddress"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Address"
         android:inputType="textPersonName"
@@ -118,8 +118,10 @@
         android:background="@drawable/title_bar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etRegisterAddress">
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterAddress"
+        app:layout_constraintVertical_bias="0.22">
 
         <TextView
             android:id="@+id/tvRegisterSubmit"
@@ -128,7 +130,7 @@
             android:gravity="center"
             android:text="Submit"
             android:textColor="@color/white"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:textStyle="bold"></TextView>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
